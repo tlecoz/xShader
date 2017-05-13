@@ -32,10 +32,11 @@ var material:THREE.ShaderMaterial = new THREE.ShaderMaterial( {
         gl_FragColor = vec4(vec3(min(x, y)), 1.);
         }`
 });
+
+
 And now with XShader
 
  
-
 class MyShader extends XShader {
     constructor(){
         super();
@@ -49,6 +50,7 @@ class MyShader extends XShader {
         `);
     }
 }
+
 As you can see, the code is shorter and the definition of the uniforms/buffer disappeared from the glsl code but the difference is not huge in that example.
 The differences appears when you consider the whole potential of XShader, what you can do with it and how it will modify the way you work with shaders.
 
@@ -96,6 +98,7 @@ class MyPlane extends XShader {
         `);
     }
 }
+
 I don't know you but I think it's much readable written like that
 
 Now, if you want to update the buffer called vertice, you can do it like that
