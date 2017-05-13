@@ -134,7 +134,7 @@ class MyPlane extends XShader {
         var nbQuad:number = 1;
 
         this.vertices = this.setVertexBuffer(XBuffer.createQuadXYZ_Buffer("vertices",nbQuad));
-        this.setVertexBuffer(XBuffer.createQuadUV_Buffer("uvts",nbQuad)).isVarying = trye;
+        this.setVertexBuffer(XBuffer.createQuadUV_Buffer("uvts",nbQuad)).isVarying = true;
         this.setIndexBuffer(XIndexBuffer.createQuadIndexBuffer(nbQuad));
         this.texture = this.setFragmentUniform("texture",new THREE.TextureLoader().load("myPicture.jpg"));
         this.colorMulti = this.setFragmentUniform("colorMulti",new THREE.Color(0xff0000));
