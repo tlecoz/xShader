@@ -58,6 +58,8 @@ First of all, it's possible to convert automaticly a vertexUniform or a vertexBu
 For example, the first real line of my shader could be that
 
 this.setVertexUniform("time",1.0).isVarying = true;
+
+
 doing that, you can use the word "time" in the vertex shader and in the fragment shader without doing anything else.
 
 Now, if you want to update the value of the time variable, it could be usefull to keep a reference of that uniform into an object. You can do it like that
