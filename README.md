@@ -5,7 +5,6 @@ I work with shaders for 5 years now. I started in 2011 with Flash and its horrib
 
 The last 5 years, I really thought a lot about this problem, I wrote maybe 8-9 libraries in different languages focus only on make a shader easy to write and easy to reuse,  and because shaders are hard to reuse by nature, it was a very long road before I build this library. I really tryed to keep it as simple as possible while being as powerfull as possible.
 
-Presently, I work with Typecript (it compiles its code into javascript) and I use Three.js as the core of the rendering pipeline.
 
 First of all, let's compare how we create shaders in Three.js and how it look like with XShader.
 
