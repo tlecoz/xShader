@@ -116,8 +116,6 @@ for(var i:number = 0;i<verts.length;i++) verts[i] = Math.random();
 this.vertices.updateGeometry();
 ```
 
-it's cool but it's still possible to improve what you can do in order to make your code reusable and not feel limited by the structure of a shader when you try to declinate it.
-
 If I know that the shader I'm writting will be use as "base" for higher-level-shader , I should write it a bit differently :
 
 ```typescript
@@ -321,20 +319,43 @@ this.fragment.applyColor.define("gl_FragColor = textureColor;");
 Here is another example of very simple module
 
 ```typescript
-class ColorModule extends XShaderModule {
+class MouseModule extends XShaderModule {
+    
+    constructor(isVarying:boolean=false,mouseName:string="mouse"){
 
-    constructor(nbQuad:number,quadColorName:string){
-        super();
-        this.setVertexBuffer(XBuffer.createQuadRGB_Buffer(quadColorName,nbQuad,true)).isVarying = true;
+        super("MouseModule");
 
-        var code:XShaderCode = this.fragment.applyColor.createSubShaderCode("gl_FragColor.xyz += $quadColor;");
-        code.replaceVariables([{name:"$quadColor",value:quadColorName}]);
+        var mouse = new THREE.Vector4(0,0,0,0);
+        this.setVertexUniform("mouseObj",mouse).isVarying = isVarying;
+        this.setStructure("Mouse",[
+            {name:"position",type:"vec2"},
+            {name:"press",type:"float"},
+            {name:"wheelSpeed",type:"float"}
+        ])
+
+        this.vertex.getPosition.define(`
+            $mouse = Mouse(mouseObj.xy,mouseObj.z,mouseObj.w);
+        `).replaceVariables([{name:"$mouse",value:mouseName}]);
+        
+        document.body.onmousedown = function(){
+            mouse.z = 1;
+        }
+        document.body.onmouseup = function () {
+            mouse.z = 0;
+        }
+        document.body.onwheel = function(ev){
+            mouse.w += ev.wheelDelta;
+        }
+        document.body.onmousemove = function(ev){
+            mouse.x = ev.clientX - window.innerWidth/2;
+            mouse.y = -(ev.clientY - window.innerHeight/2);
+        }
     }
 }
 ```
 
 These modules are very basic, but you could use it in various situations.
-For example, you could create a sound-spectrum-module or a mouse-controler-module, or what you want actually
+For example, you could create a sound-spectrum-module or what you want actually
 
 If you use 2 or more modules that use the same buffer or uniform names, the new one will replace the previous but the type of variable cannot be changed.
 
