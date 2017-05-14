@@ -71,7 +71,7 @@ timeUniform.isVarying = true;
 timeUniform.value = 123456;
 ```
 
-Contrary to Three.js that make impossible to add an attribute inside a material, it's possible to do it with XShader.
+Contrary to Three.js that make a bit complex to add an attribute inside a material, it's a common task with XShader.
 
 for example, if I would draw a square from scratch, without a THREE.PlaneGeometry  I could do it like that
 
