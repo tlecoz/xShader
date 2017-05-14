@@ -62,6 +62,7 @@ this.setVertexUniform("time",1.0).isVarying = true;
 ```
 
 doing that, you can use the word "time" in the vertex shader and in the fragment shader without doing anything else.
+It may sounds like nothing but it's damn confortable to use compared to the need to create a name for the buffer/uniform and another for the varying.
 
 Now, if you want to update the value of the time variable, it could be usefull to keep a reference of that uniform into an object. You can do it like that
 
