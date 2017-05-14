@@ -1,7 +1,7 @@
 # XShader
 A Typescript/javascript library to create modular and object-oriented shaders (for Three.js)
 
-I work with shaders for 5 years now. I started in 2011 with Flash and its horrible shader-language called AGAL and since that time, I am a bit disapointed with shaders. It's very powerfull but also very hard to share with other people because of how works the shader itself, the kind of datas it needs to work and the fact that everything is so low-level that if you want to share something, you have to share everything in most of cases (and than usually you only share a demo, but the code is minifyed and unreadable)
+I work with shaders for 5 years now. I started in 2011 with Flash and its horrible shader-language called AGAL and since that time, I am a bit disapointed with shaders. It's very powerfull but also very hard to share with other people because of how works the shader itself, the kind of datas it needs to work and the fact that everything is so low-level that if you want to share something, you have to share everything (and usually you share nothing or just a demo)
 
 The last 5 years, I really thought a lot about this problem, I wrote maybe 8-9 libraries in different languages focus only on make a shader easy to write and easy to reuse,  and because shaders are hard to reuse by nature, it was a very long road before I build this library. I really tryed to keep it as simple as possible while being as powerfull as possible.
 
