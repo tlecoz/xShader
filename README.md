@@ -338,4 +338,7 @@ For example, you could create a sound-spectrum-module or a mouse-controler-modul
 If you use 2 or more modules that use the same buffer or uniform names, the new one will replace the previous but the type of variable cannot be changed.
 
 I 'm pride of  XShader, it's not rocket-science-code but it was long to really know what I wanted to do, how to be efficient while being readable and easy-to-use.
+
 I hope you will like it !
+
+(look at App.ts for a working example)
